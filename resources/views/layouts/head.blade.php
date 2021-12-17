@@ -6,7 +6,7 @@
         <link rel="apple-touch-icon" sizes="76x76" href="../admin/img/apple-icon.png">
         <link rel="icon" type="image/png" href="../admin/img/favicon.png">
 
-        <title>{{ config('app.name'}} | @yield('title')</title>
+        <title>{{ config('app.name')}} |@yield('title')</title>
 
         <!--     Fonts and icons     -->
         <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
