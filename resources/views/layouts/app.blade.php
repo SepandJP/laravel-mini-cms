@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        @include('layouts.head')
+        @include('layouts.app-head')
     </head>
     <body class="g-sidenav-show  bg-gray-200">
         <div class="min-h-screen bg-gray-100">
@@ -32,7 +32,7 @@
 
         </div>
 
-            @include('layouts.footer')
+            @include('layouts.app-footer')
 
     </body>
 </html>
