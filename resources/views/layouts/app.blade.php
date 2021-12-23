@@ -31,8 +31,10 @@
             </section>
 
         </div>
-
+        
+        <footer>
             @include('layouts.app-footer')
+        </footer>
 
     </body>
 </html>
