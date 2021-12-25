@@ -5,7 +5,7 @@
     </head>
     <body class="g-sidenav-show  bg-gray-200">
         <div class="min-h-screen bg-gray-100">
-{{-- 
+
             @include('layouts.navigation')
 
             <!-- Page Heading -->
@@ -14,21 +14,21 @@
                     {{ $header }}
                 </div>
             </header>
- --}}
+
             <!-- Page Sidebar -->
-            <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
+            {{-- <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3   bg-gradient-dark" id="sidenav-main">
                 @include('layouts.sidebar')
-            </aside>
+            </aside> --}}
 
             <!-- Page Content -->
             <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
-                {{ $slot }}
+                {{ $main }}
             </main>
 
-            <!-- Other Sections -->
+            {{-- <!-- Other Sections -->
             <section>
                 {{ $section }}
-            </section>
+            </section> --}}
 
         </div>
         
