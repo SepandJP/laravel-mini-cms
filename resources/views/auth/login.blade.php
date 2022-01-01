@@ -48,6 +48,10 @@
                     </div>
 
             <div class="card-body">
+
+              <x-auth-validation-errors>
+              </x-auth-validation-errors>
+              
                 <form role="form" method="POST" action="{{ route('login') }}">
                     @csrf
 
