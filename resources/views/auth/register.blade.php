@@ -29,6 +29,10 @@
                             <p class="mb-0">Enter your email and password to register</p>
                         </div>
                             <div class="card-body">
+
+                                <x-auth-validation-errors>
+                                </x-auth-validation-errors>
+                                
                                 <form role="form" method="POST" action="{{ route('register') }}">
                                     @csrf
 
