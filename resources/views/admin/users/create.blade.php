@@ -24,7 +24,7 @@
                                 <x-auth-validation-errors>
                                 </x-auth-validation-errors>
                                 
-                                <form role="form" method="POST" action="{{ route('users.store') }}">
+                                <form role="form" method="POST" action="{{ route('users.store') }}" accept-charset="UTF-8" enctype="multipart/form-data">
                                     @csrf
 
                                     <!-- Name -->
@@ -45,7 +45,7 @@
                                     {{-- <x-field class="mb-3"> --}}
                                         <x-label for="roles" :value="__('Roles')" />
 
-                                        <select class="form-select" name="roles" id="roles" multiple aria-label="multiple select example" required>
+                                        <select class="form-select" name="roles[]" id="roles" multiple aria-label="multiple select example" required>
                                                 @foreach ($roles as $key => $value)
                                                     <option value="{{$key}}">{{$value}}</option>
 
@@ -57,7 +57,13 @@
                                           </select>
                                     {{-- </x-field> --}}
 
-                                    
+                                    <!-- Profile Photo (Avatar) -->
+                                    <x-field class="mb-3">
+                                        <x-label for="avatar" :value="__('Profile Photo')" />
+
+                                        <x-input id="avatar" type="file" name="avatar" accept="image/*"/>
+                                    </x-field>
+
                                     <!-- Password -->
                                     <x-field class="mb-3">
                                         <x-label for="password" :value="__('Password')" />

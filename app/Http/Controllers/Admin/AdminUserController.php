@@ -4,7 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\Role;
+use App\Models\Photo;
+use App\Http\Requests\UserRequest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminUserController extends Controller
 {
@@ -26,18 +30,41 @@ class AdminUserController extends Controller
      */
     public function create()
     {
-        return view('admin.users.create');
+        $roles = Role::pluck('name', 'id');
+        return view('admin.users.create', compact(['roles']));
     }   
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Http\Requests\UserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        $user = new User();
+
+        if ($file = $request->file('avatar'))
+        {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = new Photo();
+            $photo->name = $file->getClientOriginalName();
+            $photo->path = $name;
+            $photo->user_id = Auth::id();
+            $photo->save();
+
+            $user->photo_id = $photo->id;
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+        $user->save();
+
+        $user->roles()->attach($request->roles);
+
+        return redirect()->route('users.index');
     }
 
     /**
