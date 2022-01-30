@@ -140,6 +140,7 @@
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
+                              <th></th>
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
                               <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Roles</th>
                               <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email Status</th>
@@ -151,11 +152,13 @@
 
                             @foreach ($users as $user)
                             <tr>
+                              @if ($user->photo_id)
+                                <td><img src="{{$user->photo->path}}" width="80"></td>
+                                @else
+                                <td><img src="../images/Default_Avatar.jpg" width="80"></td>
+                              @endif
                               <td>
                                 <div class="d-flex px-2 py-1">
-                                  <div>
-                                    <img src="../assets/img/team-2.jpg" class="avatar avatar-sm me-3 border-radius-lg" alt="user1">
-                                  </div>
                                   <div class="d-flex flex-column justify-content-center">
                                     <h6 class="mb-0 text-sm">{{$user->name}}</h6>
                                     <p class="text-xs text-secondary mb-0">{{$user->email}}</p>
