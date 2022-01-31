@@ -71,7 +71,7 @@
                                         <x-input id="password"
                                                         type="password"
                                                         name="password"
-                                                        required autocomplete="new-password" />
+                                                        autocomplete="new-password" />
                                     </x-field>
 
                                     <!-- Confirm Password -->
@@ -80,7 +80,7 @@
 
                                         <x-input id="password_confirmation"
                                                         type="password"
-                                                        name="password_confirmation" required />
+                                                        name="password_confirmation"/>
                                     </x-field>
 
                                     <div class="card-footer text-center pt-0 px-lg-2 px-1">
