@@ -185,7 +185,7 @@
                                 <span class="text-secondary text-xs font-weight-bold">{{$user->created_at}}</span>
                               </td>
                               <td class="align-middle">
-                                <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                                <a href="{{route('users.edit', $user->id)}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
                                   Edit
                                 </a>
                               </td>
