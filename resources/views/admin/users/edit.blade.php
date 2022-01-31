@@ -16,7 +16,7 @@
                 <div class="container">
                     <div class="row">
                     <div class="col-md-3">
-                        <img src="{{$user->photo_id ? $user->photo->path : "/images/Default_Avatar.jpg"}}">
+                        <img src="{{$user->photo_id ? $user->photo->path : "/images/Default_Avatar.jpg"}}" class="img-fluid">
                     </div>
                     <div class="col-xl-6 col-lg-7 col-md-9 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-7">
                        
