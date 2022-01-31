@@ -151,12 +151,10 @@
                           <tbody>
 
                             @foreach ($users as $user)
-                            <tr>
-                              @if ($user->photo_id)
-                                <td><img src="{{$user->photo->path}}" width="80"></td>
-                                @else
-                                <td><img src="../images/Default_Avatar.jpg" width="80"></td>
-                              @endif
+                            <tr>                              
+                                <td>
+                                  <img src="{{$user->photo_id ? $user->photo->path : "../images/Default_Avatar.jpg"}}" width="80">
+                                </td>
                               <td>
                                 <div class="d-flex px-2 py-1">
                                   <div class="d-flex flex-column justify-content-center">
