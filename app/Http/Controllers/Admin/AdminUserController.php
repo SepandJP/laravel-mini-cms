@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Models\Role;
 use App\Models\Photo;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\UserEditRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -86,7 +87,10 @@ class AdminUserController extends Controller
      */
     public function edit($id)
     {
-        return view('admin.users.edit');
+        $user = User::findOrFail($id);
+        $selectedRoles = $user->roles->pluck('id')->all();
+        $roles = Role::pluck('name', 'id');
+        return view('admin.users.edit', compact(['user', 'roles', 'selectedRoles']));
     }
 
     /**
@@ -96,9 +100,37 @@ class AdminUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UserEditRequest $request, $id)
     {
-        //
+        $user = User::findOrFail($id);
+
+        if ($file = $request->file('avatar'))
+        {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = new Photo();
+            $photo->name = $file->getClientOriginalName();
+            $photo->path = $name;
+            $photo->user_id = Auth::id();
+            $photo->save();
+
+            $user->photo_id = $photo->id;
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = bcrypt($request->password);
+
+        if (trim($request->password != ''))
+        {
+            $user->password = password_hash($request->password, null);
+        }
+
+        $user->save();
+
+        $user->roles()->sync($request->roles);
+
+        return redirect()->route('users.index');
     }
 
     /**
