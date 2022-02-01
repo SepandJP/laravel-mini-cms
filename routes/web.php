@@ -23,6 +23,6 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 Route::resource('admin/users', Admin\AdminUserController::class)
-->middleware(['auth']);
+->middleware('admin');
 
 require __DIR__.'/auth.php';
