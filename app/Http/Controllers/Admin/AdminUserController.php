@@ -10,6 +10,7 @@ use App\Http\Requests\UserRequest;
 use App\Http\Requests\UserEditRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminUserController extends Controller
 {
@@ -64,6 +65,8 @@ class AdminUserController extends Controller
         $user->save();
 
         $user->roles()->attach($request->roles);
+
+        Session::flash('add_user', 'New user created successfully');
 
         return redirect()->route('users.index');
     }
@@ -130,6 +133,8 @@ class AdminUserController extends Controller
 
         $user->roles()->sync($request->roles);
 
+        Session::flash('edit_user', 'User modified successfully');
+
         return redirect()->route('users.index');
     }
 
@@ -142,6 +147,8 @@ class AdminUserController extends Controller
     public function destroy($id)
     {
         $user = User::findOrFail($id)->delete();
+
+        Session::flash('delete_user', 'User removed successfully');
 
         return redirect()->route('users.index');
     }
