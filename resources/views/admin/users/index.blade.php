@@ -137,6 +137,14 @@
                     </div>
                     <div class="card-body px-0 pb-2">
                       <div class="table-responsive p-0">
+
+                          <x-auth-session-status class="alert-success" :status="__('add_user')" >
+                          </x-auth-session-status>
+                          <x-auth-session-status class="alert-warning" :status="__('edit_user')" >
+                          </x-auth-session-status>
+                          <x-auth-session-status class="alert-danger" :status="__('delete_user')" >
+                          </x-auth-session-status>
+                      
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
