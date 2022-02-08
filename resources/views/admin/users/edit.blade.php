@@ -85,9 +85,23 @@
 
                                     <div class="card-footer text-center pt-0 px-lg-2 px-1">
                                         <div class="card-footer text-center pt-0 px-lg-2 px-1">
-                                            <x-button class="btn-lg btn-lg mt-4 mb-0">
-                                                {{ __('Register') }}
-                                            </x-button>
+                                            <button class="btn bg-gradient-warning btn-lg btn-lg mt-4 mb-0">
+                                                {{ __('Edit') }}
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+
+                                <!-- Delete User -->
+                                <form role="form" method="POST" action="{{ route('users.destroy', $user->id) }}">
+                                    @csrf
+                                    @method('DELETE')
+
+                                    <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                        <div class="card-footer text-center pt-0 px-lg-2 px-1">
+                                            <button class="btn bg-gradient-danger btn-lg btn-lg mt-4 mb-0">
+                                                {{ __('Delete') }}
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
