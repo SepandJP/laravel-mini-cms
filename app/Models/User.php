@@ -63,11 +63,22 @@ class User extends Authenticatable
         return $this->hasMany(Photo::class);
     }
 
+    /**
+     * Which users have the right to change the users?
+     * 
+     * 1- Only the administrators have the right to change users.
+     * 2- Administrators do not have the right to change users unless they have verified their emails.
+     *
+     * @return boolean true|false
+     *                  if Admin have the right to modify users, return TRUE
+     *                  else, return FALSE
+     * 
+     */
     public function isAdmin()
     {
         foreach ($this->roles as $role)
         {
-            if ($role->id == 2)
+            if ($role->id == 2 && $this->email_verified_at != NULL)
             {
                 return true;
             }
