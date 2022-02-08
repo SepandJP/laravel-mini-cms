@@ -22,7 +22,9 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
 
-Route::resource('admin/users', Admin\AdminUserController::class)
-->middleware('admin');
+Route::middleware('admin')->prefix('admin')->group(function () {
+    Route::resource('users', Admin\AdminUserController::class);
+    Route::resource('posts', Admin\AdminPostController::class);
+});
 
 require __DIR__.'/auth.php';
