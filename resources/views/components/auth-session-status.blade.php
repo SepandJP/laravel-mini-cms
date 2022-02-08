@@ -1,8 +1,5 @@
 @props(['status'])
 
-{{-- <div {{ $attributes->merge(['class' => 'font-medium text-sm text-green-600']) }}>
-    {{ $status }}
-</div> --}}
 @if (Session::has($status))    
     <div {{ $attributes->merge(['class' => 'w-90 mx-auto alert alert-dismissible fade show']) }} role="alert">
         <span class="alert-icon align-middle">
