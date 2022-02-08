@@ -63,6 +63,11 @@ class User extends Authenticatable
         return $this->hasMany(Photo::class);
     }
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
     /**
      * Which users have the right to change the users?
      * 

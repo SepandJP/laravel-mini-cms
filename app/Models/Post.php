@@ -5,24 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Photo extends Model
+class Post extends Model
 {
     use HasFactory;
-
-    protected $uploadPath = '/images/';
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    public function posts()
+    public function photo()
     {
-        return $this->hasMany(Post::class);
+        return $this->belongsTo(Photo::class);
     }
 
-    public function getPathAttribute($photo)
+    public function category()
     {
-        return $this->uploadPath . $photo;
+        return $this->belongsTo(Category::class);
     }
 }
