@@ -179,7 +179,7 @@
                                 </ul>
                               </td>
 
-                              @if ($user->email_verified_at == NULL)
+                              @if ($user->email_verified_at != NULL)
                                 <td class="align-middle text-center text-sm">
                                   <span class="badge badge-sm bg-gradient-success">Verified</span>
                                 </td>
