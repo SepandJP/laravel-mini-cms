@@ -9,6 +9,7 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Sequence;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -36,6 +37,14 @@ class DatabaseSeeder extends Seeder
                 $roles->random(rand(1, 2))->pluck('id')->toArray()
             ); 
         });
+
+        // Seeding for created_at and updated_at colums
+        DB::table('role_user')
+            ->where('created_at', NULL)
+            ->update([
+                        'created_at' => now(),
+                        'updated_at' => now()
+                    ]);
 
         Category::factory()
             ->count(5)
