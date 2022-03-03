@@ -27,7 +27,7 @@ class PostCreateRequest extends FormRequest
             'title' => 'required|string|unique:posts,title',
             'slug' => 'unique:posts,slug',
             'description' => 'required',
-            'categories' => 'required'
+            'category' => 'required'
         ];
     }
 }
