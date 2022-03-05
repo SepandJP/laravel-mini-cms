@@ -123,11 +123,10 @@ class AdminUserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = Hash::make($request->password);
 
         if (trim($request->password != ''))
         {
-            $user->password = password_hash($request->password, null);
+            $user->password = Hash::make($request->password);
         }
 
         $user->save();
