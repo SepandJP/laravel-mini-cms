@@ -11,6 +11,7 @@ use App\Http\Requests\UserEditRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Hash;
 
 class AdminUserController extends Controller
 {
@@ -61,7 +62,7 @@ class AdminUserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $user->password = Hash::make($request->password);
         $user->save();
 
         $user->roles()->attach($request->roles);
@@ -122,7 +123,7 @@ class AdminUserController extends Controller
 
         $user->name = $request->name;
         $user->email = $request->email;
-        $user->password = bcrypt($request->password);
+        $user->password = Hash::make($request->password);
 
         if (trim($request->password != ''))
         {
