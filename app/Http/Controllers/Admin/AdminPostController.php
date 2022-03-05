@@ -11,6 +11,9 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
+use Illuminate\Support\Facades\Validator;
+        use Illuminate\Validation\Rule;
+
 class AdminPostController extends Controller
 {
     /**
@@ -129,11 +132,10 @@ class AdminPostController extends Controller
 
             $photo->photo_id = $photo->id;
         }
-
         $post->title = $request->title;
         $post->slug = $request->slug;
         $post->description = $request->description;
-        $post->category = $request->category;
+        $post->category_id = $request->category;
         $post->meta_description = $request->meta_description;
         $post->meta_keywords = $request->meta_keywords;
         
@@ -150,6 +152,13 @@ class AdminPostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $photo = Photo::findOrFail($post->photo_id);
+        unlink(public_path() . $post->photo->path);
+        $photo->delete();
+        $post->delete();
+
+        Session::flash('delete_post', 'Post removed successfully');
+        return redirect()->route('posts.index');
     }
 }
