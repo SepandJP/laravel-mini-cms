@@ -101,7 +101,10 @@ class AdminPostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $categories = Category::pluck('title', 'id');
+        $selectedCategory[] = $post->category->id;
+        return view('admin.posts.edit', compact(['post', 'categories', 'selectedCategory']));
     }
 
     /**
@@ -111,9 +114,33 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(PostRequest $request, $id)
     {
-        //
+        $post = Post::findOrFail($id);
+
+        if ($file = $request->file('index_photo'))
+        {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);
+            $photo = new Photo();
+            $photo->name = $file->getClientOriginalName();
+            $photo->path = $name;
+            $photo->user_id = Auth::id();
+            $photo->save();
+
+            $photo->photo_id = $photo->id;
+        }
+
+        $post->title = $request->title;
+        $post->slug = $request->slug;
+        $post->description = $request->description;
+        $post->category = $request->category;
+        $post->meta_description = $request->meta_description;
+        $post->meta_keywords = $request->meta_keywords;
+        
+        $post->save();
+        Session::flash('edit_post', 'Post modified successfully');
+        return redirect()->route('posts.index');
     }
 
     /**
