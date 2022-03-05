@@ -3,16 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\PostRequest;
+use App\Http\Requests\PostCreateRequest;
+use App\Http\Requests\PostUpdateRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Photo;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-
-use Illuminate\Support\Facades\Validator;
-        use Illuminate\Validation\Rule;
 
 class AdminPostController extends Controller
 {
@@ -44,7 +42,7 @@ class AdminPostController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(PostRequest $request)
+    public function store(PostCreateRequest $request)
     {
         $post = new Post();
 
@@ -116,7 +114,7 @@ class AdminPostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(PostRequest $request, $id)
+    public function update(PostUpdateRequest $request, $id)
     {
         $post = Post::findOrFail($id);
 
@@ -130,10 +128,19 @@ class AdminPostController extends Controller
             $photo->user_id = Auth::id();
             $photo->save();
 
-            $photo->photo_id = $photo->id;
+            $post->photo_id = $photo->id;
         }
+
+        if ($request->slug)
+        {
+            $post->slug = $request->slug;
+        }
+        else
+        {
+            $post->slug = Str::slug($request->title);
+        }
+
         $post->title = $request->title;
-        $post->slug = $request->slug;
         $post->description = $request->description;
         $post->category_id = $request->category;
         $post->meta_description = $request->meta_description;
