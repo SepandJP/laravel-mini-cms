@@ -63,7 +63,7 @@ class AdminPostController extends Controller
         
         if ($request->slug)
         {
-            $post->slug = $request->slug;
+            $post->slug = Str::slug($request->slug);
         }
         else
         {
@@ -133,7 +133,7 @@ class AdminPostController extends Controller
 
         if ($request->slug)
         {
-            $post->slug = $request->slug;
+            $post->slug = Str::slug($request->title);
         }
         else
         {

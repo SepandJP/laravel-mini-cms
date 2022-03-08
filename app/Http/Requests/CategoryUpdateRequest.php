@@ -4,6 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 class CategoryUpdateRequest extends FormRequest
 {
@@ -15,6 +16,24 @@ class CategoryUpdateRequest extends FormRequest
     public function authorize()
     {
         return true;
+    }
+
+    /**
+     * Generate a URL friendly "slug" from a given string,
+     * before validating the request.
+     *
+     * @return void
+     */
+    public function prepareForValidation()
+    {
+        if ($this->input('slug'))
+        {
+            $this->merge(['slug' => Str::slug($this->input('slug'))]);
+        }
+        else
+        {
+            $this->merge(['slug' => Str::slug($this->input('title'))]);
+        }
     }
 
     /**

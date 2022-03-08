@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Str;
 
 class PostCreateRequest extends FormRequest
 {
@@ -14,6 +15,24 @@ class PostCreateRequest extends FormRequest
     public function authorize()
     {
         return true;
+    }
+
+     /**
+     * Generate a URL friendly "slug" from a given string,
+     * before validating the request.
+     *
+     * @return void
+     */
+    public function prepareForValidation()
+    {
+        if ($this->input('slug'))
+        {
+            $this->merge(['slug' => Str::slug($this->input('slug'))]);
+        }
+        else
+        {
+            $this->merge(['slug' => Str::slug($this->input('title'))]);
+        }
     }
 
     /**
