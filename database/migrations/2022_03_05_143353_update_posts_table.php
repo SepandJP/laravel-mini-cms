@@ -14,14 +14,13 @@ class UpdatePostsTable extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn(['title', 'meta_description', 'meta_keywords']);
+            $table->dropColumn(['meta_description', 'meta_keywords']);
             $table->dropConstrainedForeignId('user_id');
             $table->dropConstrainedForeignId('photo_id');
             $table->dropConstrainedForeignId('category_id');
         });
 
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('title')->nullable();
             $table->string('meta_description')->nullable();
             $table->string('meta_keywords')->nullable();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
