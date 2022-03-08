@@ -83,8 +83,6 @@
                                         <x-input id="meta_keywords" type="text" name="meta_keywords" :value="$post->meta_keywords" />
                                     </x-field>
 
-                                    <input type="hidden" name="id" value="{{$post->id}}">
-
                                     <div class="text-center pt-0 px-lg-2 px-1">
                                         <div class="text-center pt-0 px-lg-2 px-1">
                                             <button class="btn bg-gradient-warning btn-lg btn-lg mt-4 mb-0">
