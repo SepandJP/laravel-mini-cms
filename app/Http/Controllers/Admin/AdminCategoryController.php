@@ -46,8 +46,7 @@ class AdminCategoryController extends Controller
         
         if ($request->slug)
         {
-            $categoty->slug = $request->slug;
-        }
+            $categoty->slug = Str::slug($request->slug);        }
         else
         {
             $categoty->slug = Str::slug($request->title);
