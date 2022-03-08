@@ -14,11 +14,6 @@
             <section>
                 <div class="page-header min-vh-100">
                 <div class="container">
-                    <div class="row">
-                    <div class="col-6 d-lg-flex d-none h-100 my-auto pe-0 position-absolute top-0 start-0 text-center justify-content-center flex-column">
-                        <div class="position-relative bg-gradient-primary h-100 m-3 px-7 border-radius-lg d-flex flex-column justify-content-center" style="background-image: url('../admin/img/illustrations/illustration-signup.jpg'); background-size: cover;">
-                        </div>
-                    </div>
                     <div class="col-xl-6 col-lg-7 col-md-9 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-7">
                        
                                 <x-auth-validation-errors>
@@ -91,7 +86,6 @@
                                         </div>
                                     </div>
                                 </form>
-                    </div>
                     </div>
                 </div>
                 </div>
