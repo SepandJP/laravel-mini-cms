@@ -52,11 +52,19 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/notifications.html">
+          <a class="nav-link text-white " {{$url == route('categories.create') ? __('active bg-gradient-primary') : '' }}" href="{{route('categories.index')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">notifications</i>
+              <i class="material-icons opacity-10">store</i>
             </div>
-            <span class="nav-link-text ms-1">Notifications</span>
+            <span class="nav-link-text ms-1">Categories</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white " {{$url == route('categories.create') ? __('active bg-gradient-primary') : '' }}" href="{{route('categories.create')}}">
+            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
+              <i class="material-icons opacity-10">add_business</i>
+            </div>
+            <span class="nav-link-text ms-1">Add Category</span>
           </a>
         </li>
         <li class="nav-item mt-3">

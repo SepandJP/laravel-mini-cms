@@ -25,6 +25,7 @@ Route::get('/dashboard', function () {
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::resource('users', Admin\AdminUserController::class);
     Route::resource('posts', Admin\AdminPostController::class);
+    Route::resource('categories', Admin\AdminCategoryController::class);
 });
 
 require __DIR__.'/auth.php';
