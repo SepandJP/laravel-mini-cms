@@ -19,12 +19,15 @@
             <span class="nav-link-text ms-1">Dashboard</span>
           </a>
         </li>
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Users</h6>
+        </li>
         <li class="nav-item">
           <a class="nav-link text-white {{$url == route('users.index') ? __('active bg-gradient-primary') : '' }}" href="{{route('users.index')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">people</i>
             </div>
-            <span class="nav-link-text ms-1">Users</span>
+            <span class="nav-link-text ms-1">Show All Users</span>
           </a>
         </li>
         <li class="nav-item">
@@ -35,12 +38,15 @@
             <span class="nav-link-text ms-1">Create New User</span>
           </a>
         </li>
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Posts</h6>
+        </li>
         <li class="nav-item">
           <a class="nav-link text-white {{$url == route('posts.index') ? __('active bg-gradient-primary') : '' }}" href="{{route('posts.index')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">description</i>
             </div>
-            <span class="nav-link-text ms-1">Posts</span>
+            <span class="nav-link-text ms-1">Show All Posts</span>
           </a>
         </li>
         <li class="nav-item">
@@ -51,47 +57,23 @@
             <span class="nav-link-text ms-1">New Post</span>
           </a>
         </li>
+        <li class="nav-item mt-3">
+          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Categories</h6>
+        </li>
         <li class="nav-item">
-          <a class="nav-link text-white " {{$url == route('categories.create') ? __('active bg-gradient-primary') : '' }}" href="{{route('categories.index')}}">
+          <a class="nav-link text-white {{$url == route('categories.index') ? __('active bg-gradient-primary') : '' }}" href="{{route('categories.index')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">store</i>
             </div>
-            <span class="nav-link-text ms-1">Categories</span>
+            <span class="nav-link-text ms-1">Posts Categories</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white " {{$url == route('categories.create') ? __('active bg-gradient-primary') : '' }}" href="{{route('categories.create')}}">
+          <a class="nav-link text-white {{$url == route('categories.create') ? __('active bg-gradient-primary') : '' }}" href="{{route('categories.create')}}">
             <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
               <i class="material-icons opacity-10">add_business</i>
             </div>
             <span class="nav-link-text ms-1">Add Category</span>
-          </a>
-        </li>
-        <li class="nav-item mt-3">
-          <h6 class="ps-4 ms-2 text-uppercase text-xs text-white font-weight-bolder opacity-8">Account pages</h6>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/profile.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">person</i>
-            </div>
-            <span class="nav-link-text ms-1">Profile</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/sign-in.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">login</i>
-            </div>
-            <span class="nav-link-text ms-1">Sign In</span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link text-white " href="../pages/sign-up.html">
-            <div class="text-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="material-icons opacity-10">assignment</i>
-            </div>
-            <span class="nav-link-text ms-1">Sign Up</span>
           </a>
         </li>
       </ul>
