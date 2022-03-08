@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryCreateRequest;
 use App\Http\Requests\CategoryUpdateRequest;
+use App\Models\Category;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Session;
 
 class AdminCategoryController extends Controller
 {
@@ -25,7 +28,7 @@ class AdminCategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -36,7 +39,26 @@ class AdminCategoryController extends Controller
      */
     public function store(CategoryCreateRequest $request)
     {
-        //
+        $categoty = new Category();
+
+        $categoty->title = $request->title;
+        
+        if ($request->slug)
+        {
+            $categoty->slug = $request->slug;
+        }
+        else
+        {
+            $categoty->slug = Str::slug($request->title);
+        }
+
+        $categoty->meta_description = $request->meta_description;
+        $categoty->meta_keywords = $request->meta_keywords;
+        $categoty->save();
+
+        Session::flash('add_category', 'New Category Added Successfully');
+
+        return redirect()->route('categories.index');
     }
 
     /**
