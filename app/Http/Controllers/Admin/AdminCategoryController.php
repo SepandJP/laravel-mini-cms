@@ -80,7 +80,8 @@ class AdminCategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        return view('admin.categories.edit', compact(['category']));
     }
 
     /**
@@ -92,7 +93,24 @@ class AdminCategoryController extends Controller
      */
     public function update(CategoryUpdateRequest $request, $id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        if ($request->slug)
+        {
+            $category->slug = Str::slug($request->title);
+        }
+        else
+        {
+            $category->slug = Str::slug($request->title);
+        }
+
+        $category->title = $request->title;
+        $category->meta_description = $request->meta_description;
+        $category->meta_keywords = $request->meta_keywords;
+        
+        $category->save();
+        Session::flash('edit_category', 'Category modified successfully');
+        return redirect()->route('categories.index');
     }
 
     /**
@@ -103,6 +121,10 @@ class AdminCategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        Session::flash('delete_category', 'Category removed successfully');
+        return redirect()->route('categories.index');
     }
 }
