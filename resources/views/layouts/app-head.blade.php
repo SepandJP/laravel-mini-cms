@@ -19,3 +19,5 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
         <!-- CSS Files -->
         <link id="pagestyle" href="{{ asset('admin/css/material-dashboard.min.css') }}" rel="stylesheet" />
+
+        @yield('styles')
