@@ -26,6 +26,7 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::resource('users', Admin\AdminUserController::class);
     Route::resource('posts', Admin\AdminPostController::class);
     Route::resource('categories', Admin\AdminCategoryController::class);
+    Route::resource('photos', Admin\AdminPhotoCotroller::class);
 });
 
 require __DIR__.'/auth.php';
