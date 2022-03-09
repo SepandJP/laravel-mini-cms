@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Photo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class AdminPhotoCotroller extends Controller
 {
@@ -14,7 +17,8 @@ class AdminPhotoCotroller extends Controller
      */
     public function index()
     {
-        //
+        $photos = Photo::with(['user'])->get();
+        return view('admin.photos.index', compact(['photos']));
     }
 
     /**
@@ -24,7 +28,7 @@ class AdminPhotoCotroller extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.photos.create');
     }
 
     /**
@@ -35,7 +39,14 @@ class AdminPhotoCotroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $file = $request->file('file');
+        $name = time() . $file->getClientOriginalName();
+        $file->move('images', $name);
+        $photo = new Photo();
+        $photo->name = $file->getClientOriginalName();
+        $photo->path = $name;
+        $photo->user_id = Auth::id();
+        $photo->save();        
     }
 
     /**
@@ -46,6 +57,12 @@ class AdminPhotoCotroller extends Controller
      */
     public function destroy($id)
     {
-        //
+        $photo = Photo::findOrFail($id);
+        unlink(public_path() . $photo->path);
+        $photo->delete();
+
+        Session::flash('delete_photo', 'Photo removed successfully');
+        return redirect()->route('photos.index');
+
     }
 }
