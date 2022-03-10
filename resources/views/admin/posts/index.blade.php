@@ -54,7 +54,7 @@
                                 <div class="d-flex px-2 py-1">
                                   <div class="d-flex flex-column justify-content-center">
                                     <h6 class="mb-0 text-sm"><a href="{{route('posts.edit', $post->id)}}">{{Str::limit($post->title, 30)}}</a></h6>
-                                    <a href="" class="text-xs text-secondary mb-0">{{$post->user->name}}</a>
+                                    <a href="{{ route('users.edit', $post->user->id) }}" class="text-xs text-secondary mb-0">{{$post->user->name}}</a>
                                   </div>
                                 </div>
                               </td>
@@ -64,7 +64,7 @@
                               </td>
 
                               <td>
-                                <a href="" class="text-secondary text-xs font-weight-bold">{{$post->category->title}}</a>
+                                <a href="{{ route('categories.edit', $post->category->id) }}" class="text-center text-secondary text-xs font-weight-bold">{{$post->category->title}}</a>
                               </td>
                              
                               <td class="align-middle text-center">
