@@ -56,6 +56,19 @@
                         @endforeach
                     </div>
 
+                    <div class="row">
+                        <div class="col-12 h-100 d-flex justify-content-center">
+                            Show
+                            {{($photos->currentPage()-1)* $photos->perPage() + 1}}
+                            to 
+                            {{ ($photos->currentPage()* $photos->perPage()) }}
+                            from   
+                            {{ $photos->total() }}
+                            photos
+                        </div>
+                        <div class="col-12 d-flex justify-content-center">{{ $photos->onEachSide(1)->links() }}</div>
+                    </div>
+
                     </div>
                   </div>
                 </div>

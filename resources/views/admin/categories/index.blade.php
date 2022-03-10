@@ -71,6 +71,21 @@
                            
                           </tbody>
                         </table>
+
+                        <!-- Pagination -->
+                    <div class="row">
+                      <div class="col-12 h-100 d-flex justify-content-center">
+                          Show
+                          {{($categories->currentPage()-1)* $categories->perPage() + 1}}
+                          to 
+                          {{ ($categories->currentPage()* $categories->perPage()) }}
+                          from   
+                          {{ $categories->total() }}
+                          photos
+                      </div>
+                      <div class="col-12 d-flex justify-content-center">{{ $categories->onEachSide(1)->links() }}</div>
+                  </div>
+
                       </div>
                     </div>
                   </div>
