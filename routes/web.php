@@ -17,16 +17,17 @@ use App\Http\Controllers\Admin;
 Route::get('/', function () {
     return view('welcome');
 });
-
+/*
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
-
+*/
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::resource('users', Admin\AdminUserController::class);
     Route::resource('posts', Admin\AdminPostController::class);
     Route::resource('categories', Admin\AdminCategoryController::class);
     Route::resource('photos', Admin\AdminPhotoCotroller::class);
+    Route::get('dashboard', [Admin\AdminDashboardController::class, 'dashboard'])->name('dashboard');
 });
 
 require __DIR__.'/auth.php';
