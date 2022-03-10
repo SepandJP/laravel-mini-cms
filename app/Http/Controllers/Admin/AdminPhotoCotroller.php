@@ -17,7 +17,7 @@ class AdminPhotoCotroller extends Controller
      */
     public function index()
     {
-        $photos = Photo::with(['user'])->get();
+        $photos = Photo::with(['user'])->paginate(6);
         return view('admin.photos.index', compact(['photos']));
     }
 
