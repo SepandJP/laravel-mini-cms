@@ -18,8 +18,9 @@ class AdminDashboardController extends Controller
         $categoriesCount = Category::count();
         $photosCount = Photo::count();
 
-        $posts = Post::limit(5)->get();
+        $posts = Post::latest()->limit(5)->get();
+        $users = User::latest()->limit(5)->get();
 
-        return view('admin.dashboard', compact(['postsCount', 'usersCount', 'categoriesCount', 'photosCount', 'posts']));
+        return view('admin.dashboard', compact(['postsCount', 'usersCount', 'categoriesCount', 'photosCount', 'posts', 'users']));
     }
 }

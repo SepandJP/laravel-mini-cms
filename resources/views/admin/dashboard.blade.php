@@ -240,11 +240,13 @@
             </div>
           </div>
 
-          <div class="container">
-            <div class="row">
+          <!-- Latest Posts and Users -->
+          <div class="container px-0 mx-0">
+            <div class="row py-3">
 
-              <div class="col-7">
-                <h2>Latest Posts</h2>
+              <!-- Latest Posts -->
+              <div class="g-0 col-xxl-7">
+                <h2 class="py-3">Latest Posts</h2>
                 <table class="table align-items-center">
                   <thead>
                     <tr>
@@ -299,42 +301,33 @@
                 </table>
               </div>
 
-              <div class="col-5">
-                <h2>Latest Users</h2>
+              <!-- Latest Users -->
+              <div class="col-xxl-5">
+                <h2 class="py-3">Latest Users</h2>
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th></th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">User</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Roles</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Email Status</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Register Time</th>
-                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-center text-uppercase text-secondary text-s font-weight-bolder w-25">User</th>
+                      <th class="text-center text-uppercase text-secondary text-s font-weight-bolder w-25 px-0 mx-0">Email Status</th>
+                      <th class="text-center text-uppercase text-secondary text-s font-weight-bolder w-25">Register Time</th>
                     </tr>
                   </thead>
                   <tbody>
 
                     @foreach ($users as $user)
-                    <tr>                              
+                    <tr> 
+                      <div class="w-25">                             
                         <td>
-                          <img src="{{$user->photo_id ? $user->photo->path : "../images/Default_Avatar.jpg"}}" width="80">
-                        </td>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">{{$user->name}}</h6>
-                            <p class="text-xs text-secondary mb-0">{{$user->email}}</p>
+                          <div class="d-flex px-2 py-1">
+                            <div class="d-flex flex-column justify-content-center">
+                              <h6 class="mb-0 text-sm">{{$user->name}}</h6>
+                              <p class="text-xs text-secondary mb-0">{{$user->email}}</p>
+                            </div>
                           </div>
-                        </div>
-                      </td>
-                      <td>
-                        <ul>
-                          @foreach ($user->roles as $role)
-                          <li class="text-xs text-secondary mb-0">{{$role->name}}</li>
-                          @endforeach
-                        </ul>
-                      </td>
+                        </td>
+                    </div>
 
+                    <div class="w-25">
                       @if ($user->email_verified_at != NULL)
                         <td class="align-middle text-center text-sm">
                           <span class="badge badge-sm bg-gradient-success">Verified</span>
@@ -344,15 +337,13 @@
                           <span class="badge badge-sm bg-gradient-secondary">Unverified</span>
                         </td>
                       @endif
+                    </div>
                       
+                    <div class="w-25">
                       <td class="align-middle text-center">
                         <span class="text-secondary text-xs font-weight-bold">{{$user->created_at}}</span>
                       </td>
-                      <td class="align-middle">
-                        <a href="{{route('users.edit', $user->id)}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
+                    </div>
                     </tr>
                     @endforeach
                    
