@@ -26,12 +26,12 @@ const mix = require('laravel-mix');
    /* For Bootstrap Theme **/
   /************************/
 
-mix.scripts('resources/admin/assets/js/core/*.js', 'public/admin/js/core.js');
-mix.scripts('resources/admin/assets/js/plugins/*.js', 'public/admin/js/plugins.js');
-mix.js('resources/admin/assets/js/material-dashboard.min.js', 'public/admin/js/panel.js');
+// mix.scripts('resources/admin/assets/js/core/*.js', 'public/admin/js/core.js');
+// mix.scripts('resources/admin/assets/js/plugins/*.js', 'public/admin/js/plugins.js');
+// mix.js('resources/admin/assets/js/material-dashboard.min.js', 'public/admin/js/panel.js');
 
-mix.styles([
-    'resources/admin/assets/css/nucleo-icons.css',
-    'resources/admin/assets/css/nucleo-svg.css',
-], 'public/admin/css/nucleo.css');
-mix.postCss('resources/admin/assets/css/material-dashboard.min.css', 'public/admin/css/panel.css');
+// mix.styles([
+//     'resources/admin/assets/css/nucleo-icons.css',
+//     'resources/admin/assets/css/nucleo-svg.css',
+// ], 'public/admin/css/nucleo.css');
+// mix.postCss('resources/admin/assets/css/material-dashboard.min.css', 'public/admin/css/panel.css');
