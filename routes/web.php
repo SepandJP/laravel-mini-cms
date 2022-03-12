@@ -15,14 +15,7 @@ use App\Http\Controllers\Blog;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-/*
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-*/
+
 Route::middleware('admin')->prefix('admin')->group(function () {
     Route::resource('users', Admin\AdminUserController::class);
     Route::resource('posts', Admin\AdminPostController::class);
@@ -30,5 +23,7 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::resource('photos', Admin\AdminPhotoCotroller::class);
     Route::get('dashboard', [Admin\AdminDashboardController::class, 'dashboard'])->name('dashboard');
 });
+
+Route::get('/', [Blog\MainController::class, 'index'])->name('index');
 
 require __DIR__.'/auth.php';
