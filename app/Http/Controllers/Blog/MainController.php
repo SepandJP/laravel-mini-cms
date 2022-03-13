@@ -10,13 +10,13 @@ class MainController extends Controller
 {
     public function index()
     {
-        $posts = Post::latest()->paginate(5);
+        $posts = Post::where('status', 1)->latest()->paginate(5);
         return view('blog.index', compact(['posts']));
     }
 
     public function show($slug)
     {
-        $post = Post::where('slug', $slug)->first();
+        $post = Post::where(['slug', $slug])->first();
         // dd($post);
         return view('blog.show', compact(['post']));
     }
