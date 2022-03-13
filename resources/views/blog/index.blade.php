@@ -36,8 +36,8 @@
                     <div class="post-preview">
                         <a href="{{ route('show.post', $post->slug) }}">
                             <h2 class="post-title">{{ $post->title }}</h2>
-                            <h5 class="post-subtitle">{{ Str::limit($post->description, 120, '...') }}</h5>
                         </a>
+                        <p class="post-subtitle">{{ Str::limit($post->description, 120, '...') }}</p>
                         <div class="row">
                             <div class="d-flex justify-content-start mb-4">
                                 <a class="btn btn-sm btn-secondary text-uppercase p-2 px-3" href="{{ route('show.post', $post->slug) }}">Read More →</a>
@@ -46,7 +46,7 @@
 
                         <!-- Post's Category -->
                             <span class="btn btn-dark btn-sm rounded-pill  display-6">
-                                <a href="" class="text-white">
+                                <a href="{{ route('show.category', $post->category->slug) }}" class="text-white">
                                     #{{ $post->category->title }}
                                 </a>
                             </span>
@@ -54,7 +54,7 @@
 
                         <p class="post-meta">
                             Posted by
-                            <a href="#!">{{ $post->user->name }}</a>
+                            <a href="{{ route('show.user', $post->user->id) }}">{{ $post->user->name }}</a>
                             on {{ $post->created_at }}
                         </p>
                     </div>
@@ -63,17 +63,31 @@
                 @endforeach
    
                 <!-- Pager-->
-                <div class="d-flex justify-content-center mb-2">
-                    Show
-                    {{($posts->currentPage()-1)* $posts->perPage() + 1}}
-                    to 
-                    {{ ($posts->currentPage()* $posts->perPage()) }}
-                    from   
-                    {{ $posts->total() }}
-                    posts
-                </div>
+                @if ( ($posts->currentPage() * $posts->perPage() ) > $posts->total() )
+                    <div class="d-flex justify-content-center mb-2">
+                        Show
+                        {{($posts->currentPage()-1)* $posts->perPage() + 1}}
+                        to 
+                        {{ $posts->total() }}
+                        from   
+                        {{ $posts->total() }}
+                        posts
+                    </div>
+                @else
+                    <div class="d-flex justify-content-center mb-2">
+                        Show
+                        {{($posts->currentPage()-1)* $posts->perPage() + 1}}
+                        to 
+                        {{ ($posts->currentPage()* $posts->perPage()) }}
+                        from   
+                        {{ $posts->total() }}
+                        posts
+                    </div>
+                @endif
 
-                @if ($posts->currentPage() == 1)
+                @if ($posts->lastPage() == 1)
+                    
+                @elseif ($posts->currentPage() == 1)
                     <div class="row">
                         <div class="d-flex justify-content-end mb-4">
                             <a class="btn btn-primary text-uppercase" href="{{ $posts->nextPageUrl() }}">Older Posts →</a>
