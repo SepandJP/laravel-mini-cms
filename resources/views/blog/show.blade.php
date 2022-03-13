@@ -16,7 +16,15 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="post-heading">
-                            <h1>{{ $post->title }}</h1>
+                            <h1 class="mb-5">{{ $post->title }}</h1>
+                            <!-- Category -->
+                            <div class="d-flex justify-content-center">
+                                <h2 class="btn btn-dark btn-sm rounded-pill  display-6">
+                                    <a href="" class="text-white">
+                                        #{{ $post->category->title }}
+                                    </a>
+                                </h2>
+                            </div>
                             <span class="meta">
                                 Posted by
                                 <a href="#!">{{ $post->user->name }}</a>
