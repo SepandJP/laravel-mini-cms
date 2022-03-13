@@ -40,7 +40,11 @@
                                 </li>
                         </ul>
                     </div>
-                      <div class="small text-center text-muted fst-italic">Copyright &copy; Your Website 2021</div>
+                      <div class="small text-center text-muted fst-italic">Copyright &copy; Sepand JamshidPour
+                        <script>
+                            document.write(new Date().getFullYear())
+                          </script>
+                      </div>
                   </div>
               </div>
           </div>
