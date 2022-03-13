@@ -34,13 +34,13 @@
                 @foreach ($posts as $post)
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="{{ route('post', $post->slug) }}">
+                        <a href="{{ route('show.post', $post->slug) }}">
                             <h2 class="post-title">{{ $post->title }}</h2>
                             <h5 class="post-subtitle">{{ Str::limit($post->description, 120, '...') }}</h5>
                         </a>
                         <div class="row">
                             <div class="d-flex justify-content-start mb-4">
-                                <a class="btn btn-sm btn-secondary text-uppercase p-2 px-3" href="{{ route('post', $post->slug) }}">Read More →</a>
+                                <a class="btn btn-sm btn-secondary text-uppercase p-2 px-3" href="{{ route('show.post', $post->slug) }}">Read More →</a>
                             </div>
                         </div>
 

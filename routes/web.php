@@ -25,6 +25,6 @@ Route::middleware('admin')->prefix('admin')->group(function () {
 });
 
 Route::get('/', [Blog\MainController::class, 'index'])->name('index');
-Route::get('post/{slug}', [Blog\MainController::class, 'show'])->name('post');
+Route::get('post/{slug}', [Blog\ShowController::class, 'posts'])->name('show.post');
 
 require __DIR__.'/auth.php';

@@ -16,9 +16,5 @@ class MainController extends Controller
         return view('blog.index', compact(['posts', 'categories']));
     }
 
-    public function show($slug)
-    {
-        $post = Post::where(['slug', $slug])->first();
-        return view('blog.show', compact(['post']));
-    }
+    
 }
