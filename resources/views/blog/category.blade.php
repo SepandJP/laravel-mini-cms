@@ -2,6 +2,7 @@
 
 @section('meta')
     <meta name="description" content="{{ $category->meta_description ? $category->meta_description : 'A blog mini CMS with Laravel' }}" />
+    <meta name="keywords" content="{{ $category->meta_keywords ? $category->meta_keywords : 'blog , CMS , php , Laravel' }}" />
 @endsection
 
 @section('title')

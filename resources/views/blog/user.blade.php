@@ -2,6 +2,7 @@
 
 @section('meta')
     <meta name="description" content="A blog mini CMS with Laravel" />
+    <meta name="keywords" content="blog , CMS , php , Laravel" />
     <meta name="author" content="{{ $user->name }}" />
 @endsection
 
@@ -17,6 +18,7 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="site-heading">
                         <h1>{{ $user->name }}</h1>
+                        <span class="subheading">Posts that are written by {{ $user->name }}</span>
                     </div>
                 </div>
             </div>

@@ -2,6 +2,7 @@
 
 @section('meta')
     <meta name="description" content="A blog mini CMS with Laravel" />
+    <meta name="keywords" content="blog , CMS , php , Laravel" />
     <meta name="author" content="Sepand JamshidPour" />
 @endsection
 

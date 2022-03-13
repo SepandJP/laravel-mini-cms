@@ -2,6 +2,7 @@
 
 @section('meta')
     <meta name="description" content="{{ $post->meta_description ? $post->meta_description : "A blog mini CMS with Laravel" }}" />
+    <meta name="keywords" content="{{ $post->meta_keywords ? $post->meta_keywords : "blog , CMS , php , Laravel" }}" />
     <meta name="author" content="{{ $post->user->name }}" />
 @endsection
 
@@ -20,14 +21,14 @@
                             <!-- Category -->
                             <div class="d-flex justify-content-center">
                                 <h2 class="btn btn-dark btn-sm rounded-pill  display-6">
-                                    <a href="" class="text-white">
+                                    <a href="{{ route('show.category', $post->category->slug) }}" class="text-white">
                                         #{{ $post->category->title }}
                                     </a>
                                 </h2>
                             </div>
                             <span class="meta">
                                 Posted by
-                                <a href="#!">{{ $post->user->name }}</a>
+                                <a href="{{ route('show.user', $post->user->id) }}">{{ $post->user->name }}</a>
                                 on {{ $post->created_at }}
                             </span>
                         </div>
