@@ -43,6 +43,15 @@
                                 <a class="btn btn-sm btn-secondary text-uppercase p-2 px-3" href="{{ route('post', $post->slug) }}">Read More →</a>
                             </div>
                         </div>
+
+                        <!-- Post's Category -->
+                            <span class="btn btn-dark btn-sm rounded-pill  display-6">
+                                <a href="" class="text-white">
+                                    #{{ $post->category->title }}
+                                </a>
+                            </span>
+                        <!-- End of Post's Category -->
+
                         <p class="post-meta">
                             Posted by
                             <a href="#!">{{ $post->user->name }}</a>

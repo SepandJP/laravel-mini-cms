@@ -6,7 +6,7 @@
 
     <body>
 
-        @include('layouts.blog.navbar')
+        @include('layouts.blog.navbar', ['categories' => $categories])
 
         @yield('header')
 
