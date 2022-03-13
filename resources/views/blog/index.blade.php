@@ -34,9 +34,9 @@
                 @foreach ($posts as $post)
                     <!-- Post preview-->
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a href="{{ route('post', $post->slug) }}">
                             <h2 class="post-title">{{ $post->title }}</h2>
-                            <h3 class="post-subtitle">{{ Str::limit($post->description, 500, '...') }}</h3>
+                            <h5 class="post-subtitle">{{ Str::limit($post->description, 120, '...') }}</h5>
                         </a>
                         <p class="post-meta">
                             Posted by
