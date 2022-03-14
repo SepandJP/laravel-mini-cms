@@ -25,6 +25,14 @@
                 </ul>
               </li>
               <!-- End of Categories -->
+              <!-- Search box -->
+              <li class="nav-item align-self-center ms-md-5">
+                <form class="d-flex" method="GET" action="{{ route('search') }}">
+                    @csrf
+                    <input class="form-control" name="title" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn py-2 btn-success" type="submit">Search</button>
+                </form>
+              </li>
           </ul>
       </div>
   </div>
