@@ -24,6 +24,6 @@ class IsAdmin
                 return $next($request);
             }
         }
-        return redirect('dashboard');
+        return redirect('/login');
     }
 }
