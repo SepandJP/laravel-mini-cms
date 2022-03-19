@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\Photo;
 use App\Models\Post;
 use App\Models\Role;
@@ -61,5 +62,13 @@ class DatabaseSeeder extends Seeder
                 ['status' => '1'],
                 ))
             ->create();
+
+        Comment::factory()
+                ->count(50)
+                ->state(new Sequence(
+                    ['status' => '0'],
+                    ['status' => '1']
+                ))
+                ->create();
     }
 }
