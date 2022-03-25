@@ -21,7 +21,10 @@ Route::middleware('admin')->prefix('admin')->group(function () {
     Route::resource('posts', Admin\AdminPostController::class);
     Route::resource('categories', Admin\AdminCategoryController::class);
     Route::resource('photos', Admin\AdminPhotoCotroller::class);
+
     Route::get('comments', [Admin\AdminCommentsController::class, 'index'])->name('comments.index');
+    Route::post('comments/{id}/action', [Admin\AdminCommentsController::class, 'action'])->name('comments.action');
+
     Route::get('dashboard', [Admin\AdminDashboardController::class, 'dashboard'])->name('dashboard');
 });
 
