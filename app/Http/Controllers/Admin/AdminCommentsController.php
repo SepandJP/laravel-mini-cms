@@ -38,4 +38,19 @@ class AdminCommentsController extends Controller
 
         return redirect()->route('comments.index');
     }
+
+    public function edit($id)
+    {
+        $comment = Comment::findOrFail($id);
+        return view('admin.comments.edit', compact(['comment']));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $comment = Comment::findOrFail($id);
+        $comment->description = $request->description;
+        $comment->save();
+        Session::flash('edit_comment', 'Comment Edited Successfully');
+        return redirect()->route('comments.index');
+    }
 }

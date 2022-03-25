@@ -24,6 +24,8 @@ Route::middleware('admin')->prefix('admin')->group(function () {
 
     Route::get('comments', [Admin\AdminCommentsController::class, 'index'])->name('comments.index');
     Route::post('comments/{id}/action', [Admin\AdminCommentsController::class, 'action'])->name('comments.action');
+    Route::get('comments/{id}', [Admin\AdminCommentsController::class, 'edit'])->name('comments.edit');
+    Route::patch('comments/{id}', [Admin\AdminCommentsController::class, 'update'])->name('comments.update');
 
     Route::get('dashboard', [Admin\AdminDashboardController::class, 'dashboard'])->name('dashboard');
 });
