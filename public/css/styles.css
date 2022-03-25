@@ -64,6 +64,16 @@
   --bs-body-bg: #fff;
 }
 
+::-moz-selection { /* Code for Firefox */
+  color: var(--bs-light);
+  background: var(--bs-gray-dark);
+}
+
+::selection {
+  color: var(--bs-light);
+  background: var(--bs-gray-dark);
+}
+
 *,
 *::before,
 *::after {
