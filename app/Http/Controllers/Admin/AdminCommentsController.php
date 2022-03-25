@@ -53,4 +53,12 @@ class AdminCommentsController extends Controller
         Session::flash('edit_comment', 'Comment Edited Successfully');
         return redirect()->route('comments.index');
     }
+
+    public function destroy($id)
+    {
+        $comment = Comment::findOrFail($id);
+        $comment->delete();
+        Session::flash('delete_comments', 'Comment Deleted');
+        return redirect()->route('comments.index');
+    }
 }

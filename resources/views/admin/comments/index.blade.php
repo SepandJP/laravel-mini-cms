@@ -34,6 +34,7 @@
                         <table class="table align-items-center mb-0">
                           <thead>
                             <tr>
+                              <th>ID</th>
                               <th class="text-center text-uppercase text-s font-weight-bolder">Description</th>
                               <th class="text-center text-uppercase text-s font-weight-bolder">Post</th>
                               <th class="text-center text-uppercase text-s font-weight-bolder">Write time</th>
@@ -45,6 +46,10 @@
 
                             @foreach ($comments as $comment)
                             <tr>  
+
+                              <td>
+                                {{ $comment->id }}
+                              </td>
 
                               <td>
                                 <div class="d-flex px-2 py-1">
