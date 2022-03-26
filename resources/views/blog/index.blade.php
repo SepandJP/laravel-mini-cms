@@ -41,7 +41,10 @@
                         <p class="post-subtitle">{{ Str::limit($post->description, 120, '...') }}</p>
                         <div class="row">
                             <div class="d-flex justify-content-start mb-4">
-                                <a class="btn btn-sm btn-secondary text-uppercase p-2 px-3" href="{{ route('show.post', $post->slug) }}">Read More →</a>
+                                <a class="btn btn-sm btn-secondary text-uppercase p-2 px-3" href="{{ route('show.post', $post->slug) }}">
+                                    Read More →
+                                </a>
+                                <span>{{ $post->comments->where('status', 1)->count() }}</span>
                             </div>
                         </div>
 
