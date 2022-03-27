@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin;
 use App\Http\Controllers\Blog;
+use App\Http\Controllers\Blog\CommentsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,5 +37,7 @@ Route::get('post/{slug}', [Blog\ShowController::class, 'posts'])->name('show.pos
 Route::get('user/{id}', [Blog\ShowController::class, 'users'])->name('show.user');
 Route::get('category/{slug}', [Blog\ShowController::class, 'categories'])->name('show.category');
 Route::get('search/', [Blog\MainController::class, 'search'])->name('search');
+
+Route::post('comment/{postId}', [CommentsController::class, 'store'])->name('comment.add');
 
 require __DIR__.'/auth.php';

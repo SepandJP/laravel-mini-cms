@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Blog;
 use App\Http\Controllers\Controller;
 use App\Models\Post;
 use App\Models\Category;
+use App\Models\Comment;
 use App\Models\User;
 
 class ShowController extends Controller
@@ -13,7 +14,11 @@ class ShowController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
         $categories = Category::all();
-        return view('blog.post', compact(['post', 'categories']));
+        $comments = Comment::Where([
+            'post_id' => $post->id,
+            'status' => '1'
+        ])->latest()->get();
+        return view('blog.post', compact(['post', 'categories', 'comments']));
     }
 
     public function users($id)
