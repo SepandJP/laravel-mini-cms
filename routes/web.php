@@ -39,5 +39,6 @@ Route::get('category/{slug}', [Blog\ShowController::class, 'categories'])->name(
 Route::get('search/', [Blog\MainController::class, 'search'])->name('search');
 
 Route::post('comment/{postId}', [CommentsController::class, 'store'])->name('comment.add');
+Route::post('comment/', [CommentsController::class, 'reply'])->name('comment.reply');
 
 require __DIR__.'/auth.php';

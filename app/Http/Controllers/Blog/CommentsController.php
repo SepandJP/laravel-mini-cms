@@ -25,4 +25,21 @@ class CommentsController extends Controller
         Session::flash('add_comment', 'Your comment has been successfully saved and is awaiting approval from admins.');
         return redirect()->back();
     }
+
+    public function reply(Request $request)
+    {
+        $postId = $request->postId;
+        if (Post::findOrFail($postId))
+        {
+            $comment = new Comment();
+            $comment->description = $request->description;
+            $comment->post_id = $postId;
+            $comment->parent_id = $request->parentId;
+            $comment->user_name = $request->name;
+            $comment->user_id = Auth::id();
+            $comment->save();
+        }
+        Session::flash('add_comment', 'Your comment has been successfully saved and is awaiting approval from admins.');
+        return redirect()->back();
+    }
 }

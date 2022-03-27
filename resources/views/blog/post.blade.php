@@ -112,63 +112,26 @@
                     <!-- End of writing a new comment -->
 
                     <!-- Show Comments -->
-                    @include()
-
                     <section class="container mb-3 py-5">
                         <div class="row d-flex justify-content-center">
                             <div class="col-md-12 col-lg-10 col-xl-8">
                                 <div class="card">
                                     <div class="card-body p-4">
-                                        <h4 class="text-center mb-4 pb-2">Comments</h4>
-
-                                        @foreach ($comments as $comment)
-                                            <div class="row">
-                                                <div class="d-flex flex-start">
-                                                    @if ($comment->user_id)
-                                                        <img
-                                                            class="rounded-circle shadow-1-strong me-3"
-                                                            src="{{ asset($comment->user->photo->path ) }}"
-                                                            alt="avatar"
-                                                            width="65"
-                                                            height="65"
-                                                        />
-                                                    @else
-                                                        <img
-                                                            class="rounded-circle shadow-1-strong me-3"
-                                                            src="{{ asset('images/Default_Avatar.jpg') }}"
-                                                            alt="avatar"
-                                                            width="65"
-                                                            height="65"
-                                                        />
-                                                    @endif
-                                                    <div class="flex-grow-1 flex-shrink-1">
-                                                    <div>
-                                                        <div class="d-flex justify-content-between align-items-center">
-                                                        <p class="blockquote-footer my-0">
-                                                            @if ($comment->user_id)
-                                                                <a href="{{ route('show.user', $comment->user->id) }}">{{ $comment->user->name }}</a>
-                                                            @elseif ($comment->user_name)
-                                                                {{ $comment->user_name }}
-                                                            @else
-                                                                Guest
-                                                            @endif
-                                                            <span class="small">
-                                                                - {{ $comment->created_at }}
-                                                            </span>
-                                                        </p>
-                                                        <a href="#!"
-                                                            ><i class="fas fa-reply fa-xs"></i
-                                                            ><span class="small"> reply</span></a
-                                                        >
-                                                        </div>
-                                                        <p class="mb-5 mt-0">
-                                                            {{ $comment->description }}
-                                                        </p>
-                                                    </div>
-                                                    </div>
-                                                </div>
+                                        <div class="py-3 d-flex justify-content-center">
+                                            <div class="px-3">
+                                                <h4 class="text-center mb-4 pb-2">
+                                                    Comments
+                                                </h4>
                                             </div>
-                                        @endforeach
+                                            <div class="px-3">
+                                                <i class="fas fa-comments">
+                                                    {{ $post->comments->where('status', 1)->count() }}
+                                                </i>
+                                            </div>
+                                        </div>
+
+                    @include('layouts.blog.comments', ['comments' => $comments, 'post' => $post])
+                    
                                     </div>
                                 </div>
                             </div>

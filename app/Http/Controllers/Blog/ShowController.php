@@ -14,10 +14,10 @@ class ShowController extends Controller
     {
         $post = Post::where('slug', $slug)->first();
         $categories = Category::all();
-        $comments = Comment::Where([
-            'post_id' => $post->id,
-            'status' => '1'
-        ])->latest()->get();
+        $comments = Comment::Where('post_id', $post->id)
+        ->where('status', '1')
+        ->where('parent_id', null)
+        ->latest()->get();
         return view('blog.post', compact(['post', 'categories', 'comments']));
     }
 
