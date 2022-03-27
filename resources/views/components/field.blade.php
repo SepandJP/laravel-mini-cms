@@ -1,3 +1,3 @@
-<div {{ $attributes->merge(['class' => 'input-group input-group-outline']) }}>
+<div {{ $attributes->merge(['class' => 'form-floating']) }}>
     {{ $slot }}
 </div>
