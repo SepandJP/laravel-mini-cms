@@ -17,7 +17,7 @@
                     <div class="row">
                         <!-- Index Image -->
                     <div class="col-md-3">
-                        <img src="{{$post->photo_id ? $post->photo->path : "/images/Default_Post.jpg"}}" class="img-fluid">
+                        <img src="{{$post->photo_id ? $post->photo->path : "/images/img/Default_Post.jpg"}}" class="img-fluid">
                     </div>
                     <div class="col-xl-6 col-lg-7 col-md-9 d-flex flex-column ms-auto me-auto ms-lg-auto me-lg-7">
                        

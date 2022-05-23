@@ -45,7 +45,7 @@
                             @foreach ($users as $user)
                             <tr>                              
                                 <td>
-                                  <img src="{{$user->photo_id ? $user->photo->path : "../images/Default_Avatar.jpg"}}" width="80">
+                                  <img src="{{$user->photo_id ? $user->photo->path : "../images/img/Default_Avatar.jpg"}}" width="80">
                                 </td>
                               <td>
                                 <div class="d-flex px-2 py-1">

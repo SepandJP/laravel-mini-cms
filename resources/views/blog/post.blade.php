@@ -73,7 +73,7 @@
                                     @else
                                     <img
                                         class="rounded-circle shadow-1-strong me-3"
-                                        src="{{ asset('images/Default_Avatar.jpg') }}"
+                                        src="{{ asset('images/img/Default_Avatar.jpg') }}"
                                         alt="avatar"
                                         width="40"
                                         height="40"

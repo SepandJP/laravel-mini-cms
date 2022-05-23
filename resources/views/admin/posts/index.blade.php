@@ -47,7 +47,7 @@
                             <tr>  
 
                               <td>
-                                <img src="{{$post->photo ? $post->photo->path : "../images/Default_Post.jpg"}}" width="80">
+                                <img src="{{$post->photo ? $post->photo->path : "../images/img/Default_Post.jpg"}}" width="80">
                               </td>  
 
                               <td>
