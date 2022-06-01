@@ -75,20 +75,4 @@
               </div>
             </div>
     </x-slot>
-
-    @section('scripts')
-        <script>
-            var win = navigator.platform.indexOf('Win') > -1;
-            if (win && document.querySelector('#sidenav-scrollbar')) {
-                var options = {
-                    damping: '0.5'
-                }
-                Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-            }
-        </script>
-
-        <!-- Dropzon.js -->
-        <script src="{{ asset('admin/js/dropzone.min.js') }}"></script>
-
-    @endsection
 </x-app-layout>
