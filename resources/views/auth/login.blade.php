@@ -2,12 +2,6 @@
     @section('title')
     {{ 'Log in' }}
     @endsection
-    {{-- <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
-            </a>
-        </x-slot> --}}
 
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
@@ -24,23 +18,6 @@
                     <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
                       <div class="bg-gradient-primary shadow-primary border-radius-lg py-3 pe-1">
                         <h4 class="text-white font-weight-bolder text-center mt-2 mb-0">Sign in</h4>
-                        <div class="row mt-3">
-                          <div class="col-2 text-center ms-auto">
-                            <a class="btn btn-link px-3" href="javascript:;">
-                              <i class="fa fa-facebook text-white text-lg"></i>
-                            </a>
-                          </div>
-                          <div class="col-2 text-center px-1">
-                            <a class="btn btn-link px-3" href="javascript:;">
-                              <i class="fa fa-github text-white text-lg"></i>
-                            </a>
-                          </div>
-                          <div class="col-2 text-center me-auto">
-                            <a class="btn btn-link px-3" href="javascript:;">
-                              <i class="fa fa-google text-white text-lg"></i>
-                            </a>
-                          </div>
-                        </div>
                       </div>
                     </div>
 
@@ -56,7 +33,7 @@
                     <x-field class="mb-3">
                         <x-label for="email" :value="__('Email')" />
 
-                        <x-input id="email"  type="email" name="email" :value="old('email')" required autofocus />
+                        <x-input id="email"  type="email" name="email" :value="old('email')" required />
                     </x-field>
 
                     <!-- Password -->
@@ -109,49 +86,6 @@
 
             @section('footer')
                 @section('footer-style')
-                    footer position-absolute bottom-2 py-2 w-100
+                  container footer position-absolute bottom-2 py-2 w-100
                 @endsection
-                <div class="container">
-                    <div class="row align-items-center justify-content-lg-between">
-                        <div class="col-12 col-md-6 my-auto">
-                        <div class="copyright text-center text-sm text-white text-lg-start">
-                            © <script>
-                            document.write(new Date().getFullYear())
-                            </script>,
-                            made with <i class="fa fa-heart" aria-hidden="true"></i> by
-                            <a href="https://www.creative-tim.com" class="font-weight-bold text-white" target="_blank">Creative Tim</a>
-                            for a better web.
-                        </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                        <ul class="nav nav-footer justify-content-center justify-content-lg-end">
-                            <li class="nav-item">
-                            <a href="https://www.creative-tim.com" class="nav-link text-white" target="_blank">Creative Tim</a>
-                            </li>
-                            <li class="nav-item">
-                            <a href="https://www.creative-tim.com/presentation" class="nav-link text-white" target="_blank">About Us</a>
-                            </li>
-                            <li class="nav-item">
-                            <a href="https://www.creative-tim.com/blog" class="nav-link text-white" target="_blank">Blog</a>
-                            </li>
-                            <li class="nav-item">
-                            <a href="https://www.creative-tim.com/license" class="nav-link pe-0 text-white" target="_blank">License</a>
-                            </li>
-                        </ul>
-                        </div>
-                    </div>
-                </div>
-            @endsection
-
-    @section('scripts')
-        <script>
-        var win = navigator.platform.indexOf('Win') > -1;
-        if (win && document.querySelector('#sidenav-scrollbar')) {
-          var options = {
-            damping: '0.5'
-          }
-          Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-        }
-      </script>
-    @endsection
 </x-guest-layout>

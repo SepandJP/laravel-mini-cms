@@ -40,7 +40,7 @@
                                     <x-field class="mb-3">
                                         <x-label for="name" :value="__('Name')" />
 
-                                        <x-input id="name" type="text" name="name" :value="old('name')" required autofocus />
+                                        <x-input id="name" type="text" name="name" :value="old('name')" required />
                                     </x-field>
 
                                     <!-- Email Address -->
