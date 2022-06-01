@@ -7,18 +7,15 @@
         <div class="min-h-screen bg-gray-100">
 
             <div class="row">
-                <div class="col-3"></div>
-                <div class="col-9">
-                    @include('layouts.navigation')
-                
-
-                    <!-- Page Heading -->
-                    <header class="bg-white shadow">
-                        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                            {{ $header }}
-                        </div>
-                    </header>
-                </div>
+                <!-- Page Heading -->
+                <header class="">
+                    <div class="d-flex flex-column align-items-end">
+                        @include('layouts.navigation')
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        {{ $header }}
+                    </div>
+                </header>
             </div>
 
 
@@ -28,14 +25,9 @@
             </aside>
 
             <!-- Page Content -->
-            <main class="main-content mt-0">
+            <main class="main-content">
                 {{ $main }}
             </main>
-
-            {{-- <!-- Other Sections -->
-            <section>
-                {{ $section }}
-            </section> --}}
 
         </div>
         
