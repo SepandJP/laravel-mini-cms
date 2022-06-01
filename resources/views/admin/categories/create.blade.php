@@ -23,26 +23,26 @@
                                     @csrf
 
                                     <!-- Title -->
+                                    <x-label for="title" :value="__('Title')" />
                                     <x-field class="mb-3">
-                                        <x-label for="title" :value="__('Title')" />
-                                        <x-input id="title" type="text" name="title" :value="old('title')" required autofocus />
+                                        <x-input id="title" type="text" name="title" :value="old('title')" required />
                                     </x-field>
 
                                     <!-- Slug -->
+                                    <x-label for="slug" :value="__('Slug')" />
                                     <x-field class="mb-3">
-                                        <x-label for="slug" :value="__('Slug')" />
                                         <x-input id="slug" type="text" name="slug" :value="old('slug')" />
                                     </x-field>
 
                                      <!-- Meta Description -->
+                                     <x-label for="meta_description" :value="__('Meta Description')" />
                                      <x-field class="mb-3">
-                                        <x-label for="meta_description" :value="__('Meta Description')" />
                                         <x-input id="meta_description" type="text" name="meta_description" :value="old('meta_description')" />
                                     </x-field>
 
                                      <!-- Meta Keywords -->
+                                     <x-label for="meta_keywords" :value="__('Meta Keywords')" />
                                      <x-field class="mb-3">
-                                        <x-label for="meta_keywords" :value="__('Meta Keywords')" />
                                         <x-input id="meta_keywords" type="text" name="meta_keywords" :value="old('meta_keywords')" />
                                     </x-field>
 

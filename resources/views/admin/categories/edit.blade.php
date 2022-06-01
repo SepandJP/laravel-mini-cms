@@ -24,28 +24,26 @@
                                     @method('PATCH')
 
                                     <!-- Title -->
+                                    <x-label for="title" :value="__('Title')" />
                                     <x-field class="mb-3">
-                                        <x-label for="title" :value="__('Title')" />
-
                                         <x-input id="title" type="text" name="title" :value="$category->title" required/>
                                     </x-field>
 
                                     <!-- Slug -->
+                                    <x-label for="slug" :value="__('Slug')" />
                                     <x-field class="mb-3">
-                                        <x-label for="slug" :value="__('Slug')" />
-
                                         <x-input id="slug" type="text" name="slug" :value="$category->slug"/>
                                     </x-field>
 
                                     <!-- Meta Description -->
+                                    <x-label for="meta_description" :value="__('Meta Description')" />
                                     <x-field class="mb-3">
-                                        <x-label for="meta_description" :value="__('Meta Description')" />
                                         <x-input id="meta_description" type="text" name="meta_description" :value="$category->meta_description" />
                                     </x-field>
 
                                      <!-- Meta Keywords -->
+                                    <x-label for="meta_keywords" :value="__('Meta Keywords')" />
                                      <x-field class="mb-3">
-                                        <x-label for="meta_keywords" :value="__('Meta Keywords')" />
                                         <x-input id="meta_keywords" type="text" name="meta_keywords" :value="$category->meta_keywords" />
                                     </x-field>
 

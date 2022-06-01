@@ -25,27 +25,25 @@
                                     @csrf
                                     @method('PATCH')
 
+                                    <x-label for="post" :value="__('Post')" />
                                     <!-- Post -->
                                     <x-field class="mb-3">
-                                        <x-label for="post" :value="__('Post')" />
-
                                         <x-input id="post" type="text" name="post" :value="$comment->post->title" readonly/>
                                     </x-field>
 
                                     <!-- User -->
+                                    <x-label for="user" :value="__('User')" />
                                     <x-field class="mb-3">
-                                        <x-label for="user" :value="__('User')" />
-
                                         <x-input id="user" type="text" name="user" :value="$comment->user->name" readonly/>
                                     </x-field>
 
                                     <!-- Description -->
-                                    <x-field class="mb-3">
-                                        <x-label for="description" :value="__('Description')" />
-                                        <textarea rows="20" class="form-control" id="description" type="textarea" name="description" required autofocus>
+                                    <x-label for="description" :value="__('Description')" />
+                                    <div class="input-group input-group-outline">
+                                        <textarea rows="20" class="form-control" id="description" type="textarea" name="description" required>
                                             {{$comment->description}}
                                         </textarea>
-                                    </x-field>
+                                    </div>
 
                                     <div class="d-flex justify-content-center">
                                         <div class="text-center pt-0 px-lg-2 px-1">
