@@ -14,10 +14,10 @@
 <br/>
 
 برای مشاهده و کار با صفحات مختلف بلاگ روی لینک زیر کلید کنید:
- **[مشاهده آنلاین](http://larami.herokuapp.com/)**
+ **[مشاهده آنلاین](https://larami.iran.liara.run/)**
 
 برای مشاهده و کار با صفحات پنل مدیریت روی لینک زیر کلید کنید:
-**[پنل مدیریت](http://larami.herokuapp.com/admin/dashboard)**
+**[پنل مدیریت](https://larami.iran.liara.run/admin/dashboard)**
 
 ### ورود به پنل مدیریت
 
