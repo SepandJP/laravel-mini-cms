@@ -1,4 +1,4 @@
-<p align="center"><a href="https://larami.herokuapp.com/" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://larami.iran.liara.run/" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 
 
@@ -43,6 +43,67 @@
  - سطوح دسترسی و کاربری متفاوت
  </div>
 
+# نصب برنامه
+برای نصب برنامه بعد از اطمینان از نصب پیش‌نیازها بر روی سیستم خود، مطابق مراحل ارائه شده در ادامه عمل نمایید.
+
+## پیش‌نیازها
+<div dir="rtl" align=right>
+
+- [XAMPP](https://www.apachefriends.org/) یا سایر برنامه‌ها مشابه جهت اجرای سرور مجازی، دیتابیس MySQL و پکیج زبان PHP
+- [composer](https://getcomposer.org/)
+</div>
+
+## مراحل نصب
+
+1- ابتدا با دستور زیر سورس کد را `clone` نمایید.
+```bash
+git clone https://github.com/SepandJP/laravel-mini-cms.git
+```
+
+2- سپس با دستور زیر وارد پوشه اصلی پروژه شوید.
+```bash
+cd .\laravel-mini-cms\
+```
+
+3- حال با دستور زیر پکیج‌های موردنیاز رو نصب نمایید.
+```bash
+composer install
+```
+
+4- به دلیل استفاده از پکیج‌های گوناگون و همچنین بروزرسانی پیوسته آن‌ها، ممکن است برخی از پکیج‌ها نیاز به تغییر نسخه و بروزرسانی داشته باشد در غیر این صورت برنامه به درستی کار نکند. به همین دلیل با دستور زیر پکیج‌های نصب شده را بروزرسانی نمایید.
+
+*باتوجه به شرایط اینترنت، این مرحله ممکن است کمی زمان‌بر باشد.*
+```bash
+composer update
+```
+
+5- با دستور زیر متغیرهای موردنیاز برای اجرای برنامه را کپی نمایید.
+```bash
+cp .env.example .env
+```
+
+6- فایل `database-export.sql` را در phpMyAdmin ایمپورت نمایید.
+یا به صورت دستی یک دیتابیس به نام `laravel_mini_cms` بدون هیچ جدول و اطلاعاتی بسازید.
+
+7- جهت ساخت tableهای دیتابیس دستور زیر را وارد نمایید.
+```bash
+php artisan migrate
+```
+
+8- برای وارد کردن اطلاعات fake در جداول دیتابیس، دستور زیر را وارد نمایید.
+```bash
+ php artisan db:seed
+ ```
+
+ 9- با دستور زیر برنامه را اجرا نمایید.
+ ```bash
+php artisan serve
+```
+
+10- برای مشاهده بخش اصلی برنامه آدرس `localhost:8000` را در مرورگر وارد نمایید.
+
+جهت مشاهده پنل مدیریت آدرس `http://localhost:8000/admin/dashboard` را در مرورگر وارد نمایید.
+مشخصات لازم برای ورد به پنل در پنل `users` موجود می‌باشد.
 
 # پکیج‌های استفاده شده
 
