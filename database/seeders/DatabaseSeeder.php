@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
         ]);
 
         User::factory()
-            ->count(20)
+            ->count(5)
             ->create();
 
         // Get all the roles attaching up to 3 random roles to each user
@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         Post::factory()
-            ->count(30)
+            ->count(20)
             ->state(new Sequence(
                 ['status' => '0'],
                 ['status' => '1'],
@@ -64,7 +64,7 @@ class DatabaseSeeder extends Seeder
             ->create();
 
         Comment::factory()
-                ->count(50)
+                ->count(20)
                 ->state(new Sequence(
                     ['status' => '0'],
                     ['status' => '1']
